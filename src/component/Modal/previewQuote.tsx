@@ -24,12 +24,6 @@ interface Section {
     currencyAmount: string;
 }
 
-interface QuoteData {
-    quoteTitle: string;
-    date: string;
-    section: Section[]
-}
-
 type AddQuoteProps = {
     open: boolean;
     setOpen: (open: boolean) => void;
@@ -39,7 +33,7 @@ type AddQuoteProps = {
 function PreviewQuote({ open, setOpen, date }: AddQuoteProps) {
     const data = useSelector((state: RootState) => state.data.savedData);
     console.log(data)
-    let array: QuoteData = data[date]
+    let array: Section[] = data[date]?.section || []
     console.log(array)
     const termsAndConditions = [
         {
@@ -230,7 +224,7 @@ function PreviewQuote({ open, setOpen, date }: AddQuoteProps) {
                                             </div>
                                         </div>
                                         {
-                                            array.section.map((sections, sectionIndex) => (
+                                            array.map((sections, sectionIndex) => (
                                                 <div>
                                                     <div className={`pb-5`}>
                                                         <p className={`font-light text-custom-grey text-sm ${sectionIndex === 0 ? '' : 'hidden'}`}>
