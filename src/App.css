@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (min-width: 769px) {
+  .desktop-only {
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0px 1px 1px 0px #0000001F;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.th {
+  /*border: solid 1px #000;*/
+  border: 1px solid #E8E8E8;
+  border-style: solid none none solid;
+  /*padding: 10px;*/
+}
+
+.td {
+  /*border: solid 1px #000;*/
+  border: 0.5px solid #E8E8E8;
+  border-style: solid solid solid solid;
+  /*padding: 10px;*/
+}
+
+.tdquote {
+  border: 1px solid #E8E8E8;
+  border-style: solid none solid none;
+}
+
+.header th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.header th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.quoteDescription td:first-child {
+  border-left: 1px solid #E8E8E8
+}
+
+.quoteDescription td:last-child {
+  border-right: 1px solid #E8E8E8
+}
+
+.transition-enter {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.transition-exit {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.transition-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.table-fixed {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-fixed th,
+.table-fixed td {
+  word-wrap: break-word; /* Ensures content does not overflow */
+}
+
+.radio-square {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.radio-square.checked {
+  border-color: #139C33; /* Change to your desired checked color */
+  background-color: #139C33;
+}
+
+.radio-square.checked::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
